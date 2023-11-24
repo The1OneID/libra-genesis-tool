@@ -48,7 +48,16 @@ fi
 mkdir -- "${DOT_LIBRA_PATH}"
 }
 
+function install_dependencies() {
+  PRE_COMMAND=()
+  if [ "$(whoami)" != 'root' ]; then
+    PRE_COMMAND=(sudo)
+  fi
+  "${PRE_COMMAND[@]}" apt update -y && "${PRE_COMMAND[@]}" apt install git make -y
+}
+
 function pull_repo() {
+  install_dependencies
   (
     cd -- "${WORKDIR}" && \
     git clone ${LIBRA_GIT_REPO} && \
