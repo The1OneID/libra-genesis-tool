@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -o errexit nounset pipefail
 
-: "${EPOCH:=694}"
+: "${EPOCH:=692}"
 : "${WORKDIR:=${HOME}}"
 : "${GIT_BRANCH:=release-6.9.0-rc.10}"
 : "${GIT_REPO:=release-v6.9.0-genesis-registration}"
